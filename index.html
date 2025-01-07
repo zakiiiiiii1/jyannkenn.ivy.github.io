@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>じゃんけんゲーム</title>
+    <title>じゃんけん</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -19,7 +19,7 @@
             padding: 20px;
             position: relative;
             text-align: center;
-            font-size: 20px;
+            font-size: 24px;
             font-weight: bold;
         }
 
@@ -63,35 +63,15 @@
         main {
             margin: 50px auto;
             padding: 20px;
-            max-width: 600px;
+            max-width: 800px;
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            text-align: center;
+            line-height: 1.6;
         }
 
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #result {
-            margin-top: 30px;
-            font-size: 20px;
-            color: #555;
-            white-space: pre-line;
+        h2 {
+            color: #4CAF50;
         }
 
         footer {
@@ -100,11 +80,20 @@
             color: #888;
             text-align: center;
         }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>じゃんけんゲーム</h1>
+        じゃんけん
         <button class="hamburger" onclick="toggleMenu()">☰</button>
         <nav class="menu" id="menu">
             <a href="index.html">じゃんけんとは</a>
@@ -112,11 +101,34 @@
         </nav>
     </header>
     <main>
-        <p>グー、チョキ、パーのいずれかを選んでください！</p>
-        <button onclick="playJanken('グー')">グー</button>
-        <button onclick="playJanken('チョキ')">チョキ</button>
-        <button onclick="playJanken('パー')">パー</button>
-        <p id="result"></p>
+        <h2>じゃんけんとは？</h2>
+        <p>
+            じゃんけんは、グー、チョキ、パーの3つの手を使った日本の伝統的なゲームです。
+            シンプルながらも奥が深く、友人同士や家族、さらにはビジネスの場でも使用されることがあります。
+        </p>
+
+        <h2>ルール</h2>
+        <ul>
+            <img src="Rock-paper-scissors.svg.png" height="200px" align="right">
+            <li><strong>グー</strong>は<strong>チョキ</strong>に勝ちます。</li>
+            <li><strong>チョキ</strong>は<strong>パー</strong>に勝ちます。</li>
+            <li><strong>パー</strong>は<strong>グー</strong>に勝ちます。</li>
+        </ul>
+        <p>
+            同じ手を出した場合は引き分けになります。
+        </p>
+
+        <h2>遊び方</h2>
+        <p>
+            じゃんけんを始めるには、参加者全員が「じゃーんけーんぽん！」と声を合わせ、同時に手を出します。
+            勝敗は上記のルールに従って決まります。
+        </p>
+
+        <h2>ゲーム</h2>
+        <p>
+            じゃんけんがしたくなった場合は、
+            <a href="game.html">こちら</a>のゲームをプレイしてください！
+        </p>
     </main>
     <footer>
         © 2025 じゃんけん
@@ -131,32 +143,6 @@
             } else {
                 menu.style.display = 'flex';
             }
-        }
-
-        // じゃんけんゲーム
-        function playJanken(playerChoice) {
-            // 選択肢を定義
-            const choices = ["グー", "チョキ", "パー"];
-
-            // コンピュータの選択をランダムで生成
-            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
-
-            // 結果を判定
-            let result = "";
-            if (playerChoice === computerChoice) {
-                result = "あいこです！";
-            } else if (
-                (playerChoice === "グー" && computerChoice === "チョキ") ||
-                (playerChoice === "チョキ" && computerChoice === "パー") ||
-                (playerChoice === "パー" && computerChoice === "グー")
-            ) {
-                result = "あなたの勝ちです！";
-            } else {
-                result = "あなたの負けです...";
-            }
-
-            // 結果を表示
-            document.getElementById("result").textContent = `あなたの選択: ${playerChoice}\nコンピュータの選択: ${computerChoice}\n結果: ${result}`;
         }
     </script>
 </body>
