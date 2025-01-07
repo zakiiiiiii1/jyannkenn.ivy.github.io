@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけんゲーム</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: none;
+            flex-direction: column;
+            background-color: #4CAF50;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .menu a:last-child {
+            border-bottom: none;
+        }
+
+        .menu a:hover {
+            background-color: #45a049;
+        }
+
+        .hamburger {
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+        }
+
+        main {
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 600px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #555;
+            white-space: pre-line;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>じゃんけんゲーム</h1>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <nav class="menu" id="menu">
+            <a href="jyannkenn.html">じゃんけんとは</a>
+            <a href="game.html">ゲーム</a>
+        </nav>
+    </header>
+    <main>
+        <p>グー、チョキ、パーのいずれかを選んでください！</p>
+        <button onclick="playJanken('グー')">グー</button>
+        <button onclick="playJanken('チョキ')">チョキ</button>
+        <button onclick="playJanken('パー')">パー</button>
+        <p id="result"></p>
+    </main>
+    <footer>
+        © 2025 じゃんけん
+    </footer>
+
+    <script>
+        // ハンバーガーメニューのトグル
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        }
+
+        // じゃんけんゲーム
+        function playJanken(playerChoice) {
+            // 選択肢を定義
+            const choices = ["グー", "チョキ", "パー"];
+
+            // コンピュータの選択をランダムで生成
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+            // 結果を判定
+            let result = "";
+            if (playerChoice === computerChoice) {
+                result = "あいこです！";
+            } else if (
+                (playerChoice === "グー" && computerChoice === "チョキ") ||
+                (playerChoice === "チョキ" && computerChoice === "パー") ||
+                (playerChoice === "パー" && computerChoice === "グー")
+            ) {
+                result = "あなたの勝ちです！";
+            } else {
+                result = "あなたの負けです...";
+            }
+
+            // 結果を表示
+            document.getElementById("result").textContent = `あなたの選択: ${playerChoice}\nコンピュータの選択: ${computerChoice}\n結果: ${result}`;
+        }
+    </script>
+</body>
+</html>

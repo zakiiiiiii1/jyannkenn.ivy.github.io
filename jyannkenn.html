@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけん</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: none;
+            flex-direction: column;
+            background-color: #4CAF50;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .menu a:last-child {
+            border-bottom: none;
+        }
+
+        .menu a:hover {
+            background-color: #45a049;
+        }
+
+        .hamburger {
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+        }
+
+        main {
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 800px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            line-height: 1.6;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        じゃんけん
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <nav class="menu" id="menu">
+            <a href="jyannkenn.html">じゃんけんとは</a>
+            <a href="game.html">ゲーム</a>
+        </nav>
+    </header>
+    <main>
+        <h2>じゃんけんとは？</h2>
+        <p>
+            じゃんけんは、グー、チョキ、パーの3つの手を使った日本の伝統的なゲームです。
+            シンプルながらも奥が深く、友人同士や家族、さらにはビジネスの場でも使用されることがあります。
+        </p>
+
+        <h2>ルール</h2>
+        <ul>
+            <img src="Rock-paper-scissors.svg.png" height="200px" align="right">
+            <li><strong>グー</strong>は<strong>チョキ</strong>に勝ちます。</li>
+            <li><strong>チョキ</strong>は<strong>パー</strong>に勝ちます。</li>
+            <li><strong>パー</strong>は<strong>グー</strong>に勝ちます。</li>
+        </ul>
+        <p>
+            同じ手を出した場合は引き分けになります。
+        </p>
+
+        <h2>遊び方</h2>
+        <p>
+            じゃんけんを始めるには、参加者全員が「じゃーんけーんぽん！」と声を合わせ、同時に手を出します。
+            勝敗は上記のルールに従って決まります。
+        </p>
+
+        <h2>ゲーム</h2>
+        <p>
+            じゃんけんがしたくなった場合は、
+            <a href="game.html">こちら</a>のゲームをプレイしてください！
+        </p>
+    </main>
+    <footer>
+        © 2025 じゃんけん
+    </footer>
+
+    <script>
+        // ハンバーガーメニューのトグル
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>
